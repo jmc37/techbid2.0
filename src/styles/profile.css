@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+  }
+
+
+  
+  .profile {
+    margin-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  .preview {
+    padding: 20px;
+    background-color: #eee;
+  }
+  
+  .preview h2 {
+    margin-top: 0;
+  }
+  
+/* Styles for expand button */
+.expand-button {
+    background-color: transparent;
+    color: #333;
+    padding: 8px 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+  }
+  
+  .expand-button:hover {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .expand-button.collapsed .arrow {
+    transform: rotate(-45deg);
+  }
+  
+  .expand-button.expanded .arrow {
+    transform: rotate(135deg);
+  }
+  
+  .expand-button .arrow {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid rgb(27, 15, 15);
+    border-bottom: 2px solid rgb(27, 15, 15);
+    transform: rotate(45deg);
+    transition: all 0.2s ease;
+  }
+
+  .expand-button:hover .arrow {
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+  }
+
+  
+  /* Styles for sale items section */
+  .sale-items {
+    display: none;
+  }
+  
+  .sale-items.show {
+    display: block;
+  }
+
+  /* Styles for purchased items section */
+  .purchased-items {
+    display: none;
+  }
+  
+  .purchased-items.show {
+    display: block;
+  }
+
+  
+  /* Styles for item cards */
+.item-card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .item-card img {
+    max-width: 150px;
+    margin-right: 20px;
+  }
+  
+  .item-card h4 {
+    margin-top: 0;
+  }
+  
+  .item-card p {
+    margin-bottom: 0;
+  }
+  
+  .item-card .price {
+    font-weight: bold;
+    color: green;
+    margin-top: 10px;
+  }
+  

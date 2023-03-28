@@ -1,0 +1,231 @@
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  body{
+    margin: 0;
+  }
+  /* Change the link color to #111 (black) on hover */
+  li a:hover {
+    background-color: #111;
+  }
+  p {
+    border: 2px solid powderblue;
+  }
+
+/* CSS for the hero banner */
+
+.hero-banner {
+    background: url('../assets/cover.gif') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-banner h1 {
+    color: #faf5f5;
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .hero-banner h2 {
+    color: #f1eeee;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+
+  /* Search Bar */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
+  .search-box input[type="text"] {
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-left: 10px;
+    font-size: 16px;
+  }
+  
+  .search-box button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  /* Footer */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+footer p {
+    margin: 0;
+}
+.items-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sale-items,
+.suggested-items {
+  width: 50%;
+  display: inline-block;
+}
+
+.sale-items, .suggested-items {
+  justify-content: center;
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+  padding: 0;
+}
+
+
+/* .suggested-items.show {
+  display: block;
+} */
+
+
+/* Styles for item cards */
+h3{
+  text-align: center;
+}
+.item-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.item-card img {
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.item-card h4 {
+  margin-top: 0;
+}
+
+.item-card p {
+  margin-bottom: 0;
+}
+.item-card:hover {
+  transform: scale(1.02);
+}
+.item-card .price {
+  font-weight: bold;
+  color: green;
+  margin-top: 10px;
+}
+
+  /* Media query for mobile devices */
+
+  @media (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+
+    .hamburger {
+      display: block;
+    }
+
+    .hamburger-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #333;
+      color: #fff;
+      display: none;
+      z-index: 9999;
+    }
+
+    .hamburger-menu ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .hamburger-menu li {
+      margin-bottom: 20px;
+    }
+
+    .hamburger-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .hamburger-menu .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .hamburger-menu.active {
+      display: flex;
+    }
+  }
