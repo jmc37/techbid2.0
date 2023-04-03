@@ -50,24 +50,6 @@
       "service": "Cognito"
     }
   },
-  "parameters": {
-    "AMPLIFY_function_itemsfunction_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "itemsfunction"
-        }
-      ]
-    },
-    "AMPLIFY_function_itemsfunction_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "itemsfunction"
-        }
-      ]
-    }
-  },
   "storage": {
     "qgls3": {
       "dependsOn": [],
