@@ -23,7 +23,17 @@ const awsmobile = {
   },
   "aws_cognito_verification_mechanisms": [
       "EMAIL"
-  ]
+  ],
+  "aws_rds": {
+    "mydb": {
+      "host": "database-1.cbkknefcjewr.us-west-2.rds.amazonaws.com",
+      "port": "3306",
+      "username": "admin",
+      "password": "burger",
+      "database": "mydb",
+      "awsSecretStoreArn": "arn:aws:secretsmanager:us-west-2:791852914748:secret:corgi-ZxTupU"
+    }
+  }
 };
 
 
