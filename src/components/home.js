@@ -20,7 +20,7 @@ function HeroBanner() {
   return (
     <div className="hero-banner">
       <div className="hero-content">
-        <h1>Welcome to Tech Huh</h1>
+        <h1>Welcome to Tech Hub</h1>
         <h2>Find, Bid, Sell</h2>
       </div>
     </div>
