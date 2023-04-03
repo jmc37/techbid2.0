@@ -4,6 +4,7 @@ import './index.css';
 import App from './pages/App';
 import Profile from './pages/Profile'
 import Create from './pages/Create'
+
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter,RouterProvider,} from "react-router-dom";
 import { Amplify } from 'aws-amplify';
@@ -11,6 +12,8 @@ import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
 const router = createBrowserRouter([
+
+
   {
   path: "/",
   element: < App /> ,

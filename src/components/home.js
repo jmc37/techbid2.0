@@ -2,13 +2,15 @@ import React from 'react';
 import '../styles/index.css'
 import {Link} from "react-router-dom"
 
-function NavBar() {
+
+function NavBar(signOut) {
   return (
     <nav>
       <ul>
         <li><Link to="/">Homes</Link></li>
         <li><Link to="/create">Create</Link></li>
         <li><Link to="/profile">Profile</Link></li>
+
       </ul>
     </nav>
   );
@@ -18,7 +20,7 @@ function HeroBanner() {
   return (
     <div className="hero-banner">
       <div className="hero-content">
-        <h1>Welcome to Tech Huh</h1>
+        <h1>Welcome to Tech Hub</h1>
         <h2>Find, Bid, Sell</h2>
       </div>
     </div>
@@ -110,5 +112,7 @@ function Footer() {
         <p>&copy; 2023 Tech Hub. All rights reserved.</p>
       </footer>
     );
+
   }
+
   export { NavBar, HeroBanner, SearchBar, SaleItems, SuggestedItems, Footer };
