@@ -4,11 +4,13 @@
   "bucketName": "techbid2s3",
   "storageAccess": "authAndGuest",
   "guestAccess": [
-    "READ"
+    "READ",
+    "DELETE",
+    "CREATE_AND_UPDATE"
   ],
   "authAccess": [
-    "CREATE_AND_UPDATE",
     "READ",
+    "CREATE_AND_UPDATE",
     "DELETE"
   ],
   "groupAccess": {}
