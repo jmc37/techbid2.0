@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "aws-amplify": "^5.0.23",
     "aws-amplify-react": "^5.1.43",
+    "mysql": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.9.0",
