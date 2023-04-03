@@ -1,93 +1,98 @@
 import React, { useState } from 'react';
 import '../styles/creation.css';
-import { Storage } from "@aws-amplify/storage"
-
-
+import { Storage, API, graphqlOperation,Amplify } from 'aws-amplify';
+import { createProduct } from './graphql/mutations';
+Amplify.configure(awsconfig);
 
 function CreateBiddingItem() {
+
   const [partName, setPartName] = useState('');
   const [partType, setPartType] = useState('');
   const [partDescription, setPartDescription] = useState('');
   const [partImage, setPartImage] = useState('');
 
-  const handlePartNameChange = (event) => {
-    setPartName(event.target.value);
-  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const handlePartTypeChange = (event) => {
-    setPartType(event.target.value);
-  };
+    const { key } = await Storage.put(partImage.name, partImage);
+    const imageUrl = `https://${process.env.techbid2s3181152-staging}.s3.amazonaws.com/public/${key}`;
 
-  const handlePartDescriptionChange = (event) => {
-    setPartDescription(event.target.value);
-  };
-
-  const handlePartImageChange = (event) => {
-    setPartImage(event.target.files[0]);
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-
-    // Upload the image to S3
-    const imageKey = await Storage.put(partImage.name, partImage);
-
-    // Prepare the data to send to RDS
-    const partData = {
-      partName,
-      partType,
-      partDescription,
-      partImage: `https://techbid2-s3181152-staging.s3-us-west-2.amazonaws.com/public/${imageKey.key}`
+    const product = {
+      name: partName,
+      description: partDescription,
+      price: 100, // You can set the price as needed
+      image: imageUrl
     };
 
-    // Send the data to your RDS
-    const response = await fetch('https://your-api-endpoint.execute-api.us-west-2.amazonaws.com/dev/submit-bidding-item', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(partData)
-    });
-
-    if (response.ok) {
-      console.log('Data successfully sent to RDS!');
-    } else {
-      console.log('There was an error sending data to RDS.');
+    try {
+      await API.graphql(graphqlOperation(createProduct, { input: product }));
+      console.log('Product created successfully!');
+    } catch (error) {
+      console.error('Error creating product:', error);
     }
   };
+
   return (
     <>
       <h1>Create Bidding Item</h1>
-      <form onSubmit={handleFormSubmit} encType="multipart/form-data">
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label htmlFor="part_name">Name of Part:</label>
-        <input type="text" id="part_name" name="part_name" value={partName} onChange={handlePartNameChange} required /><br /><br />
+        <input
+          type="text"
+          id="part_name"
+          name="part_name"
+          value={partName}
+          onChange={(e) => setPartName(e.target.value)}
+          required
+        />
+        <br />
+        <br />
 
         <label htmlFor="part_type">Type of Part:</label>
-        <select id="part_type" name="part_type" value={partType} onChange={handlePartTypeChange} required>
+        <select
+          id="part_type"
+          name="part_type"
+          value={partType}
+          onChange={(e) => setPartType(e.target.value)}
+          required
+        >
           <option value="">-- Select a type --</option>
           <option value="Graphics Card">Graphics Card</option>
           <option value="Ram">Ram</option>
           <option value="CPU">CPU</option>
           <option value="Power Supply">Power Supply</option>
           {/* Add more options as needed */}
-        </select><br /><br />
+        </select>
+        <br />
+        <br />
 
-        <label htmlFor="part_description">Description of Part:</label><br />
+        <label htmlFor="part_description">Description of Part:</label>
+        <br />
         <textarea
           id="part_description"
           name="part_description"
           rows="5"
           cols="40"
           value={partDescription}
-          onChange={handlePartDescriptionChange}
+          onChange={(e) => setPartDescription(e.target.value)}
           required
         ></textarea>
-        <br /><br />
+        <br />
+        <br />
 
         <label htmlFor="part_image">Image of Part:</label>
-        <input type="file" id="part_image" name="part_image" onChange={handlePartImageChange} required /><br /><br />
+        <input
+          type="file"
+          id="part_image"
+          name="part_image"
+          accept="image/*"
+          onChange={(e) => setPartImage(e.target.files[0])}
+          required
+        />
+        <br />
+        <br />
 
-        <button type="submit">Submit</button>
+        <input type="submit" value="Submit" />
       </form>
     </>
   );
