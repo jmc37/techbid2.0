@@ -5,7 +5,6 @@ const awsmobile = {
     "aws_appsync_apiKey": "<api-key>",
     "aws_cognito_identity_pool_id": "<identity-pool-id>",
     "aws_cognito_region": "<region>",
-    "aws_user_pools_id": "<user-pool-id>",
     "aws_user_pools_web_client_id": "<web-client-id>",
     "aws_dynamodb_table_schemas": [
       {
