@@ -1,36 +1,42 @@
 import React, { useState } from 'react';
 import '../styles/creation.css';
-import { Storage, API, graphqlOperation,Amplify } from 'aws-amplify';
-import { createProduct } from './graphql/mutations';
+import { Storage, API } from 'aws-amplify';
+import { createProduct } from '../graphql/mutations';
+import { Amplify } from 'aws-amplify';
 import awsconfig from '../aws-exports';
 Amplify.configure(awsconfig);
 
 function CreateBiddingItem() {
-
   const [partName, setPartName] = useState('');
   const [partType, setPartType] = useState('');
   const [partDescription, setPartDescription] = useState('');
-  const [partImage, setPartImage] = useState('');
+  const [partImage, setPartImage] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-    const { key } = await Storage.put(partImage.name, partImage);
-    const imageUrl = `https://${process.env.techbid2s3181152}.s3.amazonaws.com/public/${key}`;
+    // Upload the image file to S3
+    const imageFileName = `${Date.now()}-${partImage.name}`;
+    const s3ImageKey = await Storage.put(imageFileName, partImage, {
+      contentType: partImage.type,
+      bucket: 'techbid2s3181152-staging', // Replace with your S3 bucket name
+      level: 'public',
+    });
 
-    const product = {
-      name: partName,
-      description: partDescription,
-      price: 100, // You can set the price as needed
-      image: imageUrl
-    };
+    // Create a new product using the createProduct mutation
+    const newProduct = await API.graphql({
+      query: createProduct,
+      variables: {
+        input: {
+          name: partName,
+          description: partDescription,
+          price: 0, // You can set the price to any value you want
+          image: s3ImageKey.key,
+        },
+      },
+    });
 
-    try {
-      await API.graphql(graphqlOperation(createProduct, { input: product }));
-      console.log('Product created successfully!');
-    } catch (error) {
-      console.error('Error creating product:', error);
-    }
+    console.log('New product created:', newProduct);
   };
 
   return (
