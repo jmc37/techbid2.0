@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/creation.css';
 import { Storage, API, graphqlOperation,Amplify } from 'aws-amplify';
 import { createProduct } from './graphql/mutations';
+import awsconfig from '../aws-exports';
 Amplify.configure(awsconfig);
 
 function CreateBiddingItem() {
@@ -15,7 +16,7 @@ function CreateBiddingItem() {
     e.preventDefault();
 
     const { key } = await Storage.put(partImage.name, partImage);
-    const imageUrl = `https://${process.env.techbid2s3181152-staging}.s3.amazonaws.com/public/${key}`;
+    const imageUrl = `https://${process.env.techbid2s3181152}.s3.amazonaws.com/public/${key}`;
 
     const product = {
       name: partName,
