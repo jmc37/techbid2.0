@@ -24,7 +24,7 @@ function ProfilePage() {
         </ul>
       </nav>
       <section className="profile">
-        <img src="../assets/profile-pic.webp" alt="Profile Picture" />
+        <img src="https://media.licdn.com/dms/image/C5603AQEeZArXkjqhpw/profile-displayphoto-shrink_800_800/0/1663288386896?e=2147483647&v=beta&t=1v9RqaYwVZXM-5XzkbTJiJeCG2B8mJ9WS3f0Vn2whjc" alt="Profile Picture" />
         <h2>John Doe</h2>
         <ul>
           <li>
