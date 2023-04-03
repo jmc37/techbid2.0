@@ -23,10 +23,12 @@
         "S3Trigger38b84d4d": {}
       },
       "api": {
-        "api": {}
+        "api": {},
+        "gqls3": {}
       },
       "storage": {
-        "s3techbid2s3": {}
+        "s3techbid2s3": {},
+        "qgls3": {}
       }
     }
   },
