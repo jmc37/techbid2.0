@@ -1,7 +1,7 @@
 {
-  "resourceName": "s3techbid2s3",
-  "bucketName": "techbid2-s3",
-  "policyUUID": "571a517f",
+  "resourceName": "qgls3",
+  "policyUUID": "4e36330b",
+  "bucketName": "techbid2s3",
   "storageAccess": "authAndGuest",
   "guestAccess": [
     "READ"
@@ -10,5 +10,6 @@
     "CREATE_AND_UPDATE",
     "READ",
     "DELETE"
-  ]
+  ],
+  "groupAccess": {}
 }

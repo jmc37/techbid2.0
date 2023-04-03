@@ -8,7 +8,7 @@
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": "",
+      "SourceDir": "/Users/lux/Documents/COMP 3717/techbid2.0/src",
       "DistributionDir": "/build",
       "BuildCommand": "npm run build",
       "StartCommand": "npm start"
